@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+  font-family: "Recoleta";
+  src: local("Recoleta"), url(../fonts/Recoleta-Regular.ttf) format("truetype");
+}
+h1 {
+  font-size: 5.4rem;
+}
+body {
+  font-family: "Red Hat Display", sans-serif;
+  background-color: #faf8f6;
+}
+
+.headfont {
+  font-family: "Recoleta", serif;
+}
+
+.t-container {
+  @apply w-full max-w-screen-xl mx-auto px-4;
+}
+.center-flex {
+  @apply flex items-center justify-center;
+}
