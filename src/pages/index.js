@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Helmet } from "react-helmet";
 import { useSpring, easings, animated } from "react-spring";
 
 import TheNavigationBar from "../components/TheNavigationBar";
@@ -31,6 +32,11 @@ const IndexPage = () => {
 
   return (
     <>
+      <Helmet>
+        <html lang="en" />
+        <title>Emmanuel Akhigbe | TeamApt Take Home Test</title>
+        <meta name="description" content="Suprabha Blog!" />
+      </Helmet>
       {/* Overlay to start after logo animation */}
       {!isAnimationDone && (
         <animated.div
