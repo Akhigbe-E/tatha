@@ -22,12 +22,12 @@ const TheNavigationBar = () => {
         </div>
         <animated.ul
           style={navLinksAnimation}
-          className="flex items-center justify-end space-x-14 text-d-gray font-medium text-lg"
+          className="flex items-center justify-end space-x-14 text-d-gray font-medium text-lg cursor-pointer"
         >
-          <li className="cursor-pointer">Product</li>
-          <li className="cursor-pointer">About</li>
-          <li className="cursor-pointer">Blog</li>
-          <li className="cursor-pointer">Reviews</li>
+          <li>Product</li>
+          <li>About</li>
+          <li>Blog</li>
+          <li>Reviews</li>
           <li>
             <NavCart />
           </li>
