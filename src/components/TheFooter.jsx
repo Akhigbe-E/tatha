@@ -167,7 +167,7 @@ const FOOTER_IMAGE_TRANS = [
       </div>
     ),
     op: { output: [1, 1], range: [0.75, 1] },
-    trans: { output: [270, 0], range: [0.75, 1] },
+    trans: { output: [670, 0], range: [0.75, 1] },
   },
   {
     component: (
@@ -176,7 +176,7 @@ const FOOTER_IMAGE_TRANS = [
       </div>
     ),
     op: { output: [1, 1], range: [0.75, 1] },
-    trans: { output: [350, 0], range: [0.75, 1] },
+    trans: { output: [750, 0], range: [0.75, 1] },
   },
   {
     component: (
@@ -185,7 +185,7 @@ const FOOTER_IMAGE_TRANS = [
       </div>
     ),
     op: { output: [1, 1], range: [0.75, 1] },
-    trans: { output: [430, 0], range: [0.75, 1] },
+    trans: { output: [830, 0], range: [0.75, 1] },
   },
   {
     component: (
@@ -200,7 +200,7 @@ const FOOTER_IMAGE_TRANS = [
       </div>
     ),
     op: { output: [1, 1], range: [0.75, 1] },
-    trans: { output: [510, 0], range: [0.75, 1] },
+    trans: { output: [910, 0], range: [0.75, 1] },
   },
 ];
 

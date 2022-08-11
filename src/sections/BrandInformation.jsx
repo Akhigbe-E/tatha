@@ -20,10 +20,10 @@ const BrandInformation = () => {
     },
   });
   const [exploreProductAnimation, exploreApi] = useSpring(() => ({
-    transform: "scale(0)",
+    transform: "scale(0.3)",
     config: {
       tension: 280,
-      friction: 50,
+      friction: 70,
     },
   }));
   const [curologyAnimation, curologyApi] = useSpring(() => ({
@@ -31,24 +31,24 @@ const BrandInformation = () => {
     top: "60%",
     config: {
       tension: 280,
-      friction: 50,
+      friction: 70,
     },
   }));
   const [curologyImageAnimation, curologyImageApi] = useSpring(() => ({
     transform: "scale(1.7)",
     config: {
       tension: 280,
-      friction: 40,
+      friction: 60,
     },
   }));
 
   const [biTransitions, biTransitionsApi] = useTransition(BRAND_INFO_TRANS, () => ({
-    from: { opacity: 0.3 },
+    from: { opacity: 0.45 },
     enter: { opacity: 1 },
     delay: 100,
     config: {
       tension: 280,
-      friction: 80,
+      friction: 50,
     },
   }));
 
@@ -121,12 +121,12 @@ const BRAND_INFO_TRANS = [
   {
     component: <BrandInformationHead />,
     op: { output: [0.5, 1], range: [0.75, 1] },
-    trans: { output: [70, 0], range: [0.75, 1] },
+    trans: { output: [270, 0], range: [0.75, 1] },
   },
   {
     component: <BrandInformationQuestions />,
     op: { output: [0.5, 1], range: [0.75, 1] },
-    trans: { output: [150, 0], range: [0.75, 1] },
+    trans: { output: [450, 0], range: [0.75, 1] },
   },
 ];
 

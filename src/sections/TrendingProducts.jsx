@@ -36,7 +36,7 @@ const TrendingProducts = () => {
       enter: { opacity: 1 },
       config: {
         tension: 280,
-        friction: 50,
+        friction: 80,
       },
     })
   );
@@ -48,16 +48,13 @@ const TrendingProducts = () => {
     if (inView) {
       trendingTitleTransitionsApi.start();
       pcTransitionsApi.start();
-    } else {
-      // trendingTitleTransitionsApi.stop();
-      // pcTransitionsApi.stop();
     }
   }, [inView]);
 
   return (
     <div ref={ref} className="t-container pt-16 py-36 relative">
       <div className="w-full grid grid-cols-3 gap-x-5 gap-y-7 items-start">
-        <animated.div className="space-y-6">
+        <animated.div className="space-y-6 z-50">
           {trendingTitleTransitions(({ opacity }, item) => (
             <animated.div
               style={{
@@ -72,6 +69,7 @@ const TrendingProducts = () => {
         {pcTransitions(({ opacity }, item) => (
           <animated.div
             style={{
+              zIndex: 40,
               opacity: opacity.to(item.op),
               transform: opacity.to(item.trans).to((x) => `translate3d(${x}px,0,0)`),
             }}
@@ -111,17 +109,17 @@ const TITLE_TRANS = [
   {
     component: <TrendingProductsSubtext />,
     op: { output: [0.5, 1], range: [0.75, 1] },
-    trans: { output: [200, 0], range: [0.75, 1] },
+    trans: { output: [250, 0], range: [0.75, 1] },
   },
   {
     component: <TrendingProductsHeadAction />,
     op: { output: [0.5, 1], range: [0.75, 1] },
-    trans: { output: [300, 0], range: [0.75, 1] },
+    trans: { output: [400, 0], range: [0.75, 1] },
   },
 ];
 
 const generateCardTransitions = (cardComponents = []) => {
-  let gap = 50;
+  let gap = 150;
   cardComponents.forEach(({ name, img }, i) => {
     PRODUCT_CARD_TRANS.push({
       component: <TrendingProductCard name={name} img={img} />,

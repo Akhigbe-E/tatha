@@ -12,7 +12,7 @@ import aloevera from "../images/aloevera.jpg";
 
 const TestimonialsSection = () => {
   const [framedImageAnimation, framedImageApi] = useFramedImageAnimation();
-  const [imageFrameAnimation, imageFrameApi] = useImageFrameAnimation();
+  const [imageFrameAnimation, imageFrameApi] = useImageFrameAnimation({ initialScale: 0.3 });
 
   const [companiesTransitions, companiesTransitionsApi] = useTransition(COMPANIES_TRANS, () => ({
     from: { opacity: 0.3 },
