@@ -89,6 +89,11 @@ const TestimonialsSection = () => {
                 <p className="text-d-blue text-2xl mb-2">Jane Cooper</p>
                 <p className="text-d-gray">Nashville, USA</p>
               </div>
+              <div className="flex items-center justify-end mr-auto space-x-2 w-[72%]">
+                <div className="border border-d-orange w-4 h-4 cursor-pointer"></div>
+                <div className="border border-d-orange bg-d-orange w-4 h-4 cursor-pointer"></div>
+                <div className="border border-d-orange w-4 h-4 cursor-pointer"></div>
+              </div>
             </div>
             <div className="rounded-full w-[430px] h-[430px]  absolute right-0 top-[50%] translate-y-[-50%]">
               <animated.div
