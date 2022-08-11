@@ -19,8 +19,11 @@
     "gatsby-plugin-sass": "^5.20.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-intersection-observer": "^9.4.0",
+    "react-spring": "^9.5.2",
     "remixicon": "^2.5.0",
-    "sass": "^1.54.3"
+    "sass": "^1.54.3",
+    "scroll-snap": "^4.0.3"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.8",
