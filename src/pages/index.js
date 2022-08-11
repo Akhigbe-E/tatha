@@ -38,7 +38,10 @@ const IndexPage = () => {
           style={overlayAnimationStyle}
         ></animated.div>
       )}
-      <div className="h-screen overflow-y-scroll overflow-x-hidden" style={{ scrollSnapType: "y" }}>
+      <div
+        className="h-screen overflow-y-scroll overflow-x-hidden"
+        style={{ scrollSnapType: "y mandatory" }}
+      >
         <header className="relative t-container" style={{ scrollSnapAlign: "start" }}>
           <TheNavigationBar />
           <HeroSection />
@@ -59,7 +62,7 @@ const IndexPage = () => {
           <div style={{ scrollSnapAlign: "center" }}>
             <TestimonialsSection />
           </div>
-          <div style={{ scrollSnapAlign: "bottom" }}>
+          <div style={{ scrollSnapAlign: "start" }}>
             <TheFooter />
           </div>
         </main>

@@ -49,7 +49,7 @@ const BrandStatistics = () => {
           ))}
         </div>
       ),
-      op: { output: [0.5, 1], range: [0.75, 1] },
+      op: { output: [0.2, 1], range: [0.75, 1] },
       trans: { output: [300, 0], range: [0.75, 1] },
     },
   ];

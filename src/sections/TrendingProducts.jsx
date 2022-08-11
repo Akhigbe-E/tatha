@@ -41,7 +41,7 @@ const TrendingProducts = () => {
     })
   );
 
-  const { ref, inView, entry } = useInView({
+  const { ref, inView } = useInView({
     threshold: 0.4,
   });
   useEffect(() => {
@@ -49,8 +49,8 @@ const TrendingProducts = () => {
       trendingTitleTransitionsApi.start();
       pcTransitionsApi.start();
     } else {
-      trendingTitleTransitionsApi.stop();
-      pcTransitionsApi.stop();
+      // trendingTitleTransitionsApi.stop();
+      // pcTransitionsApi.stop();
     }
   }, [inView]);
 

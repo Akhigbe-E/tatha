@@ -5,7 +5,10 @@ import { useSpring, useTransition, animated } from "react-spring";
 import { useFramedImageAnimation, useImageFrameAnimation } from "../animations";
 import brandStatsWoman from "../images/img-brand-stats-woman.png";
 import framesi from "../images/framesi.png";
-import barione from "../images/barione.png";
+import barione from "../images/barione.jpg";
+import vagoda from "../images/vagoda.jpg";
+import calvinKlein from "../images/calvinKlein.jpg";
+import aloevera from "../images/aloevera.jpg";
 
 const TestimonialsSection = () => {
   const [framedImageAnimation, framedImageApi] = useFramedImageAnimation();
@@ -140,21 +143,21 @@ const COMPANIES_TRANS = [
   },
   {
     component: (
-      <img src={barione} alt="woman" className="w-full h-full object-cover object-center" />
+      <img src={aloevera} alt="woman" className="w-full h-full object-cover object-center" />
     ),
     op: { output: [0.5, 1], range: [0.75, 1] },
     trans: { output: [240, 0], range: [0.75, 1] },
   },
   {
     component: (
-      <img src={barione} alt="woman" className="w-full h-full object-cover object-center" />
+      <img src={calvinKlein} alt="woman" className="w-full h-full object-cover object-center" />
     ),
     op: { output: [0.5, 1], range: [0.75, 1] },
     trans: { output: [320, 0], range: [0.75, 1] },
   },
   {
     component: (
-      <img src={barione} alt="woman" className="w-full h-full object-cover object-center" />
+      <img src={vagoda} alt="woman" className="w-full h-full object-cover object-center" />
     ),
     op: { output: [0.5, 1], range: [0.75, 1] },
     trans: { output: [400, 0], range: [0.75, 1] },
