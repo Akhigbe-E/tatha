@@ -77,7 +77,7 @@ const BrandStatistics = () => {
   }, [inView]);
 
   return (
-    <div ref={ref} className="relative min-h-90vh">
+    <div ref={ref} className="relative py-16 min-h-90vh">
       <div className="flex items-center relative">
         <div className="bg-[#ffe5de] pt-32 pb-32 px-32 w-[77%]">
           <div className="w-[70%]">

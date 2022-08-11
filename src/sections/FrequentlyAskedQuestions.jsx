@@ -32,7 +32,7 @@ const FrequentlyAskedQuestions = () => {
     <section ref={ref} className="relative pt-40 pb-36 ">
       <img
         src={purpleFlower}
-        className="w-[200px] h-auto absolute top-[-75px] right-[-10px] rotate-[120deg] z-50 scale-[-1]"
+        className="w-[200px] h-auto absolute top-[-145px] right-[-10px] rotate-[120deg] z-50 scale-[-1]"
       />
       <div className="t-container">
         <div className="flex items-center justify-between relative space-x-10">

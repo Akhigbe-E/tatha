@@ -56,7 +56,7 @@ const TestimonialsSection = () => {
 
   return (
     <>
-      <section ref={ref} className="t-container relative py-24">
+      <section ref={ref} className="t-container relative pt-24 pb-10">
         <div className="flex flex-col w-full space-y-32">
           <div className="relative w-full h-[500px]">
             {/* <animated.div className="bg-white py-20" style={quoteContainerAnimation}>
