@@ -3,6 +3,9 @@ import FooterLinksRow from "./FooterLinksRow";
 import { useTransition, animated } from "react-spring";
 import { useInView } from "react-intersection-observer";
 import purpleFlower from "../images/purpleFlower.svg";
+import faqImage from "../images/img-faq.png";
+import footerImageOne from "../images/img-footer-one.png";
+import footerImageThree from "../images/img-footer-three.png";
 
 const TheFooter = () => {
   useEffect(() => {
@@ -72,10 +75,10 @@ const TheFooter = () => {
               Keep Up With Our New Releases Beauty Tips And What emma's been up to.
             </p>
             <ul className="flex space-x-4 items-center text-[22px]">
-              <i class="ri-facebook-fill"></i>
-              <i class="ri-instagram-line"></i>
-              <i class="ri-twitter-fill"></i>
-              <i class="ri-linkedin-box-fill"></i>
+              <i class="cursor-pointer ri-facebook-fill"></i>
+              <i class="cursor-pointer ri-instagram-line"></i>
+              <i class="cursor-pointer ri-twitter-fill"></i>
+              <i class="cursor-pointer ri-linkedin-box-fill"></i>
             </ul>
           </div>
           <div className="flex-grow">
@@ -158,24 +161,46 @@ const generateFooterLinkTrans = (fLinks) => {
 
 const FOOTER_IMAGE_TRANS = [
   {
-    component: <div className="w-full h-64 bg-d-gray"></div>,
+    component: (
+      <div className="w-full h-72 bg-[#bcc5e6]">
+        <img src={footerImageOne} alt="hand up" />
+      </div>
+    ),
     op: { output: [1, 1], range: [0.75, 1] },
-    trans: { output: [70, 0], range: [0.75, 1] },
+    trans: { output: [270, 0], range: [0.75, 1] },
   },
   {
-    component: <div className="w-full h-64 bg-d-gray"></div>,
+    component: (
+      <div className="w-full h-72 bg-[#fe8159] overflow-hidden">
+        <img src={faqImage} alt="hand up" className="object-bottom scale-110 pt-2" />
+      </div>
+    ),
     op: { output: [1, 1], range: [0.75, 1] },
-    trans: { output: [150, 0], range: [0.75, 1] },
+    trans: { output: [350, 0], range: [0.75, 1] },
   },
   {
-    component: <div className="w-full h-64 bg-d-gray"></div>,
+    component: (
+      <div className="w-full h-72 bg-[#d3c7ee]">
+        <img src={footerImageThree} alt="hand up" />
+      </div>
+    ),
     op: { output: [1, 1], range: [0.75, 1] },
-    trans: { output: [230, 0], range: [0.75, 1] },
+    trans: { output: [430, 0], range: [0.75, 1] },
   },
   {
-    component: <div className="w-full h-64 bg-d-gray"></div>,
+    component: (
+      <div className="w-full h-72 bg-[#fe8159] text-white center-flex">
+        <div className="w-[60%] mx-auto text-center">
+          <i class="cursor-pointer ri-instagram-line text-5xl mb-10"></i>
+          <p className="mb-10">Join us and get all the services we provide</p>
+          <div className="w-10 h-10 mx-auto center-flex rounded-full bg-[#f4764f]">
+            <i class="cursor-pointer ri-arrow-right-line text-xl"></i>
+          </div>
+        </div>
+      </div>
+    ),
     op: { output: [1, 1], range: [0.75, 1] },
-    trans: { output: [310, 0], range: [0.75, 1] },
+    trans: { output: [510, 0], range: [0.75, 1] },
   },
 ];
 
