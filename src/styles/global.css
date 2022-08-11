@@ -6,7 +6,13 @@
   src: local("Recoleta"), url(../fonts/Recoleta-Regular.ttf) format("truetype");
 }
 h1 {
-  font-size: 5.4rem;
+  font-size: 6rem;
+}
+h2 {
+  font-size: 4rem;
+}
+h3 {
+  font-size: 3rem;
 }
 body {
   font-family: "Red Hat Display", sans-serif;
@@ -18,8 +24,28 @@ body {
 }
 
 .t-container {
-  @apply w-full max-w-screen-xl mx-auto px-4;
+  @apply w-full max-w-screen-xl mx-auto px-10;
 }
 .center-flex {
   @apply flex items-center justify-center;
+}
+.glass {
+  background: rgba(255, 255, 255, 0.37);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.7px);
+  -webkit-backdrop-filter: blur(8.7px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.new-video-star {
+  animation: spin 5s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
