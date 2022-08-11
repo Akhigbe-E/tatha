@@ -3,63 +3,8 @@ import { useTransition, useSpring, animated } from "react-spring";
 import { useInView } from "react-intersection-observer";
 
 import heroImage from "../images/hero-photo.png";
-import heroTextImage from "../images/img-hero-text.png";
 
-const HeadText = () => (
-  <div>
-    <h1 className="headfont text-d-blue leading-tight">Let your skin</h1>
-    <div className="flex flex-wrap items-center space-x-4">
-      <h1 className="headfont text-d-blue leading-tight">Going</h1>
-      <div className=" h-20 w-36 rounded-full relative bg-[#a294cd] flex items-center justify-center overflow-hidden">
-        <div className="absolute z-20 border-[2px] border-white rounded-[95px] w-[88%] h-[87.5%] mx-auto"></div>
-        <img
-          className="absolute z-10 rounded-[95px] w-full h-full object-contain object-center scale-x-[-1.5] scale-y-[1.5]"
-          src={heroTextImage}
-          alt="image"
-        />
-      </div>
-      <h1 className="headfont text-d-blue leading-tight">Out.</h1>
-    </div>
-  </div>
-);
-const HeadSubtext = () => (
-  <div className="w-[52%] mb-12 mt-3">
-    <p className="text-lg text-d-gray">
-      We want to bring to the world through our products that very special feeling joy, healthy and
-      positive energy.
-    </p>
-  </div>
-);
-const HeadActions = () => (
-  <div className="flex items-center justify-start space-x-4">
-    <button className="py-4 px-6 flex items-center justify-between rounded-full bg-d-orange text-white space-x-1">
-      <span className="text-lg">Shop Now</span>
-      <i className="ri-arrow-right-line text-xl"></i>
-    </button>
-    <button className="py-4 flex items-center justify-between text-black space-x-2">
-      <i className="ri-play-fill text-xl"></i>
-      <span className="text-lg">How to use</span>
-    </button>
-  </div>
-);
-
-const HERO_TRANS = [
-  {
-    component: <HeadText />,
-    op: { output: [0.5, 1], range: [0.75, 1] },
-    trans: { output: [100, 0], range: [0.75, 1] },
-  },
-  {
-    component: <HeadSubtext />,
-    op: { output: [0.5, 1], range: [0.75, 1] },
-    trans: { output: [200, 0], range: [0.75, 1] },
-  },
-  {
-    component: <HeadActions />,
-    op: { output: [0.5, 1], range: [0.75, 1] },
-    trans: { output: [300, 0], range: [0.75, 1] },
-  },
-];
+import { HeadActions, HeadSubtext, HeadText } from "../components/TheHero";
 
 const HeroSection = () => {
   const [transitions, transitionsApi] = useTransition(HERO_TRANS, () => ({
@@ -87,10 +32,8 @@ const HeroSection = () => {
   useEffect(() => {
     if (inView) {
       transitionsApi.start();
-      // imageAnimationApi.start();
     } else {
       transitionsApi.stop();
-      // imageAnimationApi.stop();
     }
     return () => {};
   }, [inView]);
@@ -119,5 +62,27 @@ const HeroSection = () => {
     </section>
   );
 };
+
+// ---------------------------------------------------------------------------------------
+// -------------------  TRANSITION FOR CHILD COMPONENTS ----------------------------------
+// ---------------------------------------------------------------------------------------
+
+const HERO_TRANS = [
+  {
+    component: <HeadText />,
+    op: { output: [0.5, 1], range: [0.75, 1] },
+    trans: { output: [100, 0], range: [0.75, 1] },
+  },
+  {
+    component: <HeadSubtext />,
+    op: { output: [0.5, 1], range: [0.75, 1] },
+    trans: { output: [200, 0], range: [0.75, 1] },
+  },
+  {
+    component: <HeadActions />,
+    op: { output: [0.5, 1], range: [0.75, 1] },
+    trans: { output: [300, 0], range: [0.75, 1] },
+  },
+];
 
 export default HeroSection;

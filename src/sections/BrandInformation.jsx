@@ -1,51 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+import { useSpring, useTransition, animated } from "react-spring";
+
 import ExploreYourProduct from "../components/ExploreYourProduct";
 import NewVideo from "../components/NewVideo";
+import { BrandInformationHead, BrandInformationQuestions } from "../components/BrandInfo";
+
 import curology from "../images/curology.jpg";
 import purpleFlower from "../images/purpleFlower.svg";
-
-import { useSpring, useTransition, animated } from "react-spring";
-import { useInView } from "react-intersection-observer";
-
-const BrandInformationHead = () => (
-  <h3 className="headfont leading-tight text-d-faint-blue mb-14">
-    The self care brand that's setting a new <span className="text-d-orange">standard Clean</span>{" "}
-    products.
-  </h3>
-);
-const BrandInformationQuestions = () => (
-  <div className="grid grid-cols-2 gap-x-5">
-    <div className="w-[90%]">
-      <h4 className="text-[21px] text-d-faint-blue font-medium w-52 leading-tight mb-3">
-        Where are products made?
-      </h4>
-      <p className="text-d-gray text-[17px]">
-        Many brands especially in period care, carry products that take centuries.
-      </p>
-    </div>
-    <div className="w-[90%]">
-      <h4 className="text-[21px] text-d-faint-blue font-medium w-52 leading-tight mb-3">
-        Where are products made?
-      </h4>
-      <p className="text-d-gray text-[17px]">
-        Many brands especially in period care, carry products that take centuries.
-      </p>
-    </div>
-  </div>
-);
-
-const BRAND_INFO_TRANS = [
-  {
-    component: <BrandInformationHead />,
-    op: { output: [0.5, 1], range: [0.75, 1] },
-    trans: { output: [70, 0], range: [0.75, 1] },
-  },
-  {
-    component: <BrandInformationQuestions />,
-    op: { output: [0.5, 1], range: [0.75, 1] },
-    trans: { output: [150, 0], range: [0.75, 1] },
-  },
-];
 
 const BrandInformation = () => {
   const newVideoAnimation = useSpring({
@@ -150,5 +112,22 @@ const BrandInformation = () => {
     </section>
   );
 };
+
+// ---------------------------------------------------------------------------------------
+// -------------------  TRANSITION FOR CHILD COMPONENTS ----------------------------------
+// ---------------------------------------------------------------------------------------
+
+const BRAND_INFO_TRANS = [
+  {
+    component: <BrandInformationHead />,
+    op: { output: [0.5, 1], range: [0.75, 1] },
+    trans: { output: [70, 0], range: [0.75, 1] },
+  },
+  {
+    component: <BrandInformationQuestions />,
+    op: { output: [0.5, 1], range: [0.75, 1] },
+    trans: { output: [150, 0], range: [0.75, 1] },
+  },
+];
 
 export default BrandInformation;

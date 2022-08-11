@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
-import TrendingProductCard from "../components/TrendingProductCard";
 
-import { useSpring, useTransition, animated } from "react-spring";
+import { useTransition, animated } from "react-spring";
 import { useInView } from "react-intersection-observer";
 
 import productOneImage from "../images/product-one.png";
@@ -10,58 +9,16 @@ import productThreeImage from "../images/product-three.png";
 import productFourImage from "../images/product-four.png";
 import productFiveImage from "../images/product-five.png";
 
-const PRODUCT_CARD_TRANS = [];
-const TITLE_TRANS = [
-  {
-    component: (
-      <h2 className="headfont leading-tight">
-        Trending On <span className="text-d-orange">Essentials</span>
-      </h2>
-    ),
-    op: { output: [0.5, 1], range: [0.75, 1] },
-    trans: { output: [100, 0], range: [0.75, 1] },
-  },
-  {
-    component: (
-      <p className="text-d-gray text-lg w-[90%]">
-        Made with nature's best ingredients — our products' transparent ingredient. Fear of God
-        Essentials.
-      </p>
-    ),
-    op: { output: [0.5, 1], range: [0.75, 1] },
-    trans: { output: [200, 0], range: [0.75, 1] },
-  },
-  {
-    component: (
-      <button className="mt-8 py-4 px-7 flex items-center justify-between rounded-full bg-transparent border border-d-orange text-d-orange space-x-1">
-        <span className="text-lg">Browse All Products</span>
-        <i className="ri-arrow-right-line text-xl"></i>
-      </button>
-    ),
-    op: { output: [0.5, 1], range: [0.75, 1] },
-    trans: { output: [300, 0], range: [0.75, 1] },
-  },
-];
-const generateCardTransitions = (cardComponents = []) => {
-  let gap = 50;
-  cardComponents.forEach(({ name, img }, i) => {
-    PRODUCT_CARD_TRANS.push({
-      component: <TrendingProductCard name={name} img={img} />,
-      op: { output: [0.5, 1], range: [0.75, 1] },
-      trans: { output: [70 + i * gap, 0], range: [0.75, 1] },
-    });
-  });
-};
+import {
+  TrendingProductsHead,
+  TrendingProductsHeadAction,
+  TrendingProductsSubtext,
+} from "../components/TrendingProductHead";
+import TrendingProductCard from "../components/TrendingProductCard";
 
 const TrendingProducts = () => {
   useEffect(() => {
-    generateCardTransitions([
-      { name: "Shower Butter", img: productOneImage },
-      { name: "Luxury Oil Gel", img: productTwoImage },
-      { name: "Shower Butter", img: productThreeImage },
-      { name: "Shower Butter", img: productFourImage },
-      { name: "Luxury Oil Gel", img: productFiveImage },
-    ]);
+    generateCardTransitions(PRODUCT_CARD_DETAILS);
   }, []);
   const [pcTransitions, pcTransitionsApi] = useTransition(PRODUCT_CARD_TRANS, () => ({
     from: { opacity: 0.3 },
@@ -125,6 +82,53 @@ const TrendingProducts = () => {
       </div>
     </div>
   );
+};
+
+// ---------------------------------------------------------------------------------------
+// -------------------  DUMMY DATA  ----------------------------------
+// ---------------------------------------------------------------------------------------
+
+const PRODUCT_CARD_DETAILS = [
+  { name: "Shower Butter", img: productOneImage },
+  { name: "Luxury Oil Gel", img: productTwoImage },
+  { name: "Shower Butter", img: productThreeImage },
+  { name: "Shower Butter", img: productFourImage },
+  { name: "Luxury Oil Gel", img: productFiveImage },
+];
+
+// ---------------------------------------------------------------------------------------
+// -------------------  TRANSITION FOR CHILD COMPONENTS ----------------------------------
+// ---------------------------------------------------------------------------------------
+
+const PRODUCT_CARD_TRANS = [];
+
+const TITLE_TRANS = [
+  {
+    component: <TrendingProductsHead />,
+    op: { output: [0.5, 1], range: [0.75, 1] },
+    trans: { output: [100, 0], range: [0.75, 1] },
+  },
+  {
+    component: <TrendingProductsSubtext />,
+    op: { output: [0.5, 1], range: [0.75, 1] },
+    trans: { output: [200, 0], range: [0.75, 1] },
+  },
+  {
+    component: <TrendingProductsHeadAction />,
+    op: { output: [0.5, 1], range: [0.75, 1] },
+    trans: { output: [300, 0], range: [0.75, 1] },
+  },
+];
+
+const generateCardTransitions = (cardComponents = []) => {
+  let gap = 50;
+  cardComponents.forEach(({ name, img }, i) => {
+    PRODUCT_CARD_TRANS.push({
+      component: <TrendingProductCard name={name} img={img} />,
+      op: { output: [0.5, 1], range: [0.75, 1] },
+      trans: { output: [70 + i * gap, 0], range: [0.75, 1] },
+    });
+  });
 };
 
 export default TrendingProducts;
