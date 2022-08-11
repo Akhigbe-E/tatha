@@ -52,7 +52,7 @@ const BrandInformation = () => {
     },
   }));
 
-  const { ref, inView, entry } = useInView({
+  const { ref, inView } = useInView({
     threshold: 0.4,
   });
   useEffect(() => {
@@ -68,6 +68,7 @@ const BrandInformation = () => {
     <section ref={ref} className="relative pb-20">
       <img
         src={purpleFlower}
+        alt="flower"
         className="w-[250px] h-auto absolute top-[-170px] left-[-20px] rotate-[110deg] z-50"
       />
       <div className="t-container relative top-[-90px]">
@@ -84,7 +85,7 @@ const BrandInformation = () => {
           </div>
           <animated.div
             style={curologyAnimation}
-            className="w-[470px] overflow-hidden h-[600px] bg-[#b7abd9]/80 absolute left-[125px] rounded-t-full"
+            className="w-[470px] overflow-hidden h-[600px] bg-[#b7abd9]/80 absolute left-[8.75%] rounded-t-full"
           >
             <animated.img
               style={curologyImageAnimation}

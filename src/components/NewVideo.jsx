@@ -33,7 +33,7 @@ const NewVideo = () => {
         <img src={curologyVideo} alt="video" className="w-full h-full object-cover" />
         {/* Play Button */}
         <div className="w-14 h-14 bg-white rounded-full absolute center-flex ">
-          <i class="ri-play-fill text-4xl text-[#37316e]"></i>
+          <i className="ri-play-fill text-4xl text-[#37316e]"></i>
         </div>
       </animated.div>
     </div>

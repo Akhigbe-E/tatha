@@ -5,8 +5,8 @@ const FooterLinksRow = ({ title = "Title", links = [], extraLinkComponent }) => 
     <div className="flex flex-col space-y-6">
       <p className="text-lg">{title}</p>
       <ul className="space-y-5 flex flex-col">
-        {links.map(({ text, href }) => (
-          <li>
+        {links.map(({ text, href }, i) => (
+          <li key={i}>
             <a className="text-[#fefeff] no-underline" href="#">
               {text}
             </a>

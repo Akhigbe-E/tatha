@@ -26,7 +26,7 @@ const HeroSection = () => {
     },
   });
 
-  const { ref, inView, entry } = useInView({
+  const { ref, inView } = useInView({
     threshold: 0.4,
   });
   useEffect(() => {

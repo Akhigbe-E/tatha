@@ -11,7 +11,7 @@ export const HeadText = () => (
         <img
           className="absolute z-10 rounded-[95px] w-full h-full object-contain object-center scale-x-[-1.5] scale-y-[1.5]"
           src={heroTextImage}
-          alt="image"
+          alt="hero text"
         />
       </div>
       <h1 className="headfont text-d-blue leading-tight">Out.</h1>

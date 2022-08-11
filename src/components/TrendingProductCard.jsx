@@ -8,9 +8,11 @@ const TrendingProductCard = ({ name = "Shower Butter", img = "" }) => {
         onMouseOver={() => {
           setIsHovering(true);
         }}
+        onFocus={() => 0}
         onMouseOut={() => {
           setIsHovering(false);
         }}
+        onBlur={() => 0}
         className="bg-white w-full h-[370px] flex item-center"
       >
         <img src={img} alt="product" className=" mx-auto object-scale-down scale-[0.7]" />

@@ -35,7 +35,7 @@ const TheFooter = () => {
       },
     })
   );
-  const { ref, inView, entry } = useInView({
+  const { ref, inView } = useInView({
     threshold: 0.5,
   });
 
@@ -50,6 +50,7 @@ const TheFooter = () => {
     <footer ref={ref} className="pt-32 relative overflow-hidden">
       <img
         src={purpleFlower}
+        alt="flower"
         className="w-[140px] h-auto absolute bottom-[-40px] left-0 rotate-[45deg] z-50 opacity-[0.05]"
       />
       <div className="t-container grid grid-cols-4 gap-x-5">
@@ -75,10 +76,10 @@ const TheFooter = () => {
               Keep Up With Our New Releases Beauty Tips And What emma's been up to.
             </p>
             <ul className="flex space-x-4 items-center text-[22px]">
-              <i class="cursor-pointer ri-facebook-fill"></i>
-              <i class="cursor-pointer ri-instagram-line"></i>
-              <i class="cursor-pointer ri-twitter-fill"></i>
-              <i class="cursor-pointer ri-linkedin-box-fill"></i>
+              <i className="cursor-pointer ri-facebook-fill"></i>
+              <i className="cursor-pointer ri-instagram-line"></i>
+              <i className="cursor-pointer ri-twitter-fill"></i>
+              <i className="cursor-pointer ri-linkedin-box-fill"></i>
             </ul>
           </div>
           <div className="flex-grow">
@@ -144,14 +145,14 @@ const FOOTER_LINKS = [
 // Transitions
 const FOOTER_LINKS_TRANS = [];
 const generateFooterLinkTrans = (fLinks) => {
-  fLinks.map(({ title, links, extraLinkComponent }, i) => {
+  fLinks.forEach(({ title, links, extraLinkComponent }, i) => {
     FOOTER_LINKS_TRANS.push({
       component: extraLinkComponent ? (
-        <div className={"w-64"}>
+        <div className={"w-64"} key={i}>
           <FooterLinksRow title={title} links={links} extraLinkComponent={extraLinkComponent()} />
         </div>
       ) : (
-        <FooterLinksRow title={title} links={links} />
+        <FooterLinksRow key={i} title={title} links={links} />
       ),
       op: { output: [1, 1], range: [0.75, 1] },
       trans: { output: [70 + i * 60, 0], range: [0.75, 1] },
@@ -191,10 +192,10 @@ const FOOTER_IMAGE_TRANS = [
     component: (
       <div className="w-full h-72 bg-[#fe8159] text-white center-flex">
         <div className="w-[60%] mx-auto text-center">
-          <i class="cursor-pointer ri-instagram-line text-5xl mb-10"></i>
+          <i className="cursor-pointer ri-instagram-line text-5xl mb-10"></i>
           <p className="mb-10">Join us and get all the services we provide</p>
           <div className="w-10 h-10 mx-auto center-flex rounded-full bg-[#f4764f]">
-            <i class="cursor-pointer ri-arrow-right-line text-xl"></i>
+            <i className="cursor-pointer ri-arrow-right-line text-xl"></i>
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ const QuestionItem = ({ index, handleClick, question, answer, isOpen }) => {
         className="flex items-center justify-between outline-none w-full text-2xl py-8 text-d-faint-blue"
       >
         <p className="font-medium">{question}</p>
-        <i class={isOpen ? "ri-subtract-fill" : "ri-add-fill"} />
+        <i className={isOpen ? "ri-subtract-fill" : "ri-add-fill"} />
       </button>
       {isOpen && <p className="text-lg mb-9 text-d-gray">{answer}</p>}
     </div>

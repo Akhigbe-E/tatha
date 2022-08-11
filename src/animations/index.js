@@ -1,4 +1,4 @@
-import { useSpring, useTransition, animated } from "react-spring";
+import { useSpring } from "react-spring";
 
 export const useFramedImageAnimation = () => {
   const [framedImageAnimation, framedImageApi] = useSpring(() => ({

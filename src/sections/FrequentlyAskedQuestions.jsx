@@ -18,7 +18,7 @@ const FrequentlyAskedQuestions = () => {
   const [imageFrameAnimation, imageFrameApi] = useImageFrameAnimation();
   const [framedImageAnimation, framedImageApi] = useFramedImageAnimation();
 
-  const { ref, inView, entry } = useInView({
+  const { ref, inView } = useInView({
     threshold: 0.3,
   });
   useEffect(() => {
@@ -32,6 +32,7 @@ const FrequentlyAskedQuestions = () => {
     <section ref={ref} className="relative pt-40 pb-36 ">
       <img
         src={purpleFlower}
+        alt="flower"
         className="w-[200px] h-auto absolute top-[-145px] right-[-10px] rotate-[120deg] z-50 scale-[-1]"
       />
       <div className="t-container">
