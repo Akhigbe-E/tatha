@@ -5,7 +5,7 @@ const NavCart = () => {
     <button className="relative">
       <div className="outline-none bg-d-orange w-11 h-11 rounded-full">
         <div className="flex w-full h-full items-center justify-center">
-          {/* <i className="ri-shopping-bag-line text-white text-lg" /> */}
+          <i className="ri-shopping-bag-line text-white text-lg" />
         </div>
       </div>
       <div className="absolute top-[-4px] right-[-4px]">
