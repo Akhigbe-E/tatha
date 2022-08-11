@@ -7,44 +7,6 @@ import brandStatsWoman from "../images/img-brand-stats-woman.png";
 import framesi from "../images/framesi.png";
 import barione from "../images/barione.png";
 
-const COMPANIES_TRANS = [
-  {
-    component: (
-      <img src={framesi} alt="woman" className="w-full h-full object-cover object-center" />
-    ),
-    op: { output: [0.5, 1], range: [0.75, 1] },
-    trans: { output: [80, 0], range: [0.75, 1] },
-  },
-  {
-    component: (
-      <img src={barione} alt="woman" className="w-full h-full object-cover object-center" />
-    ),
-    op: { output: [0.5, 1], range: [0.75, 1] },
-    trans: { output: [160, 0], range: [0.75, 1] },
-  },
-  {
-    component: (
-      <img src={barione} alt="woman" className="w-full h-full object-cover object-center" />
-    ),
-    op: { output: [0.5, 1], range: [0.75, 1] },
-    trans: { output: [240, 0], range: [0.75, 1] },
-  },
-  {
-    component: (
-      <img src={barione} alt="woman" className="w-full h-full object-cover object-center" />
-    ),
-    op: { output: [0.5, 1], range: [0.75, 1] },
-    trans: { output: [320, 0], range: [0.75, 1] },
-  },
-  {
-    component: (
-      <img src={barione} alt="woman" className="w-full h-full object-cover object-center" />
-    ),
-    op: { output: [0.5, 1], range: [0.75, 1] },
-    trans: { output: [400, 0], range: [0.75, 1] },
-  },
-];
-
 const TestimonialsSection = () => {
   const [framedImageAnimation, framedImageApi] = useFramedImageAnimation();
   const [imageFrameAnimation, imageFrameApi] = useImageFrameAnimation();
@@ -71,7 +33,7 @@ const TestimonialsSection = () => {
     },
   }));
 
-  const { ref, inView, entry } = useInView({
+  const { ref, inView } = useInView({
     threshold: 0.5,
   });
   useEffect(() => {
@@ -87,19 +49,6 @@ const TestimonialsSection = () => {
       framedImageApi.start({ transform: "scale(1)" });
       companiesTransitionsApi.start();
     }
-    // else {
-    //   quoteContainerApi.set({
-    //     opacity: 1,
-    //     textOpacity: 1,
-    //     width: "85%",
-    //     marginLeft: "0%",
-    //     paddingLeft: "80px",
-    //     paddingRight: "80px",
-    //   });
-    //   imageFrameApi.set({ transform: "translateY(-60%) scale(1)" });
-    //   framedImageApi.set({ transform: "scale(1)" });
-    //   companiesTransitionsApi.set();
-    // }
   }, [inView]);
 
   return (
@@ -169,5 +118,47 @@ const TestimonialsSection = () => {
     </>
   );
 };
+
+// ---------------------------------------------------------------------------------------
+// -------------------  TRANSITION FOR CHILD COMPONENTS ----------------------------------
+// ---------------------------------------------------------------------------------------
+
+const COMPANIES_TRANS = [
+  {
+    component: (
+      <img src={framesi} alt="woman" className="w-full h-full object-cover object-center" />
+    ),
+    op: { output: [0.5, 1], range: [0.75, 1] },
+    trans: { output: [80, 0], range: [0.75, 1] },
+  },
+  {
+    component: (
+      <img src={barione} alt="woman" className="w-full h-full object-cover object-center" />
+    ),
+    op: { output: [0.5, 1], range: [0.75, 1] },
+    trans: { output: [160, 0], range: [0.75, 1] },
+  },
+  {
+    component: (
+      <img src={barione} alt="woman" className="w-full h-full object-cover object-center" />
+    ),
+    op: { output: [0.5, 1], range: [0.75, 1] },
+    trans: { output: [240, 0], range: [0.75, 1] },
+  },
+  {
+    component: (
+      <img src={barione} alt="woman" className="w-full h-full object-cover object-center" />
+    ),
+    op: { output: [0.5, 1], range: [0.75, 1] },
+    trans: { output: [320, 0], range: [0.75, 1] },
+  },
+  {
+    component: (
+      <img src={barione} alt="woman" className="w-full h-full object-cover object-center" />
+    ),
+    op: { output: [0.5, 1], range: [0.75, 1] },
+    trans: { output: [400, 0], range: [0.75, 1] },
+  },
+];
 
 export default TestimonialsSection;

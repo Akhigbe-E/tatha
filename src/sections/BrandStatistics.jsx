@@ -4,43 +4,11 @@ import { useFramedImageAnimation, useImageFrameAnimation } from "../animations";
 import brandStatsWoman from "../images/img-brand-stats-woman.png";
 import { useInView } from "react-intersection-observer";
 import StatisticsBlock from "../components/StatisticsBlock";
-
-const BrandStatisticsHead = () => (
-  <h2 className="headfont leading-tight text-d-faint-blue mb-10 w-[90%]">
-    We make going all natural <span className="text-d-orange">Beauty</span>.
-  </h2>
-);
-
-const BrandStatisticsSubtext = () => (
-  <div className="w-[90%] mb-12 mt-3">
-    <p className="text-lg text-d-gray">
-      Made with nature's best ingredients — our products' transparent ingredient list allow you to
-      know.
-    </p>
-  </div>
-);
+import { BrandStatisticsHead, BrandStatisticsSubtext } from "../components/BrandStatisticsHead";
 
 const BrandStatistics = () => {
   const [framedImageAnimation, framedImageApi] = useFramedImageAnimation();
   const [imageFrameAnimation, imageFrameApi] = useImageFrameAnimation();
-
-  const STAT_BLOCKS_TRANS = [
-    {
-      component: <StatisticsBlock title={"Product Users"} value="7M+" />,
-      op: { output: [0.5, 1], range: [0.75, 1] },
-      trans: { output: [-100, 0], range: [0.75, 1] },
-    },
-    {
-      component: <StatisticsBlock angleUp={false} title={"Brand Product"} value="99+" />,
-      op: { output: [0.5, 1], range: [0.75, 1] },
-      trans: { output: [-200, 0], range: [0.75, 1] },
-    },
-    {
-      component: <StatisticsBlock title={"Product Reviews"} value="5M" />,
-      op: { output: [0.5, 1], range: [0.75, 1] },
-      trans: { output: [-300, 0], range: [0.75, 1] },
-    },
-  ];
 
   const [statBlocksTransitions, statBlocksTransitionsApi] = useTransition(
     STAT_BLOCKS_TRANS,
@@ -96,7 +64,7 @@ const BrandStatistics = () => {
     },
   }));
 
-  const { ref, inView, entry } = useInView({
+  const { ref, inView } = useInView({
     threshold: 0.5,
   });
   useEffect(() => {
@@ -142,5 +110,27 @@ const BrandStatistics = () => {
     </div>
   );
 };
+
+// ---------------------------------------------------------------------------------------
+// -------------------  TRANSITION FOR CHILD COMPONENTS ----------------------------------
+// ---------------------------------------------------------------------------------------
+
+const STAT_BLOCKS_TRANS = [
+  {
+    component: <StatisticsBlock title={"Product Users"} value="7M+" />,
+    op: { output: [0.5, 1], range: [0.75, 1] },
+    trans: { output: [-100, 0], range: [0.75, 1] },
+  },
+  {
+    component: <StatisticsBlock angleUp={false} title={"Brand Product"} value="99+" />,
+    op: { output: [0.5, 1], range: [0.75, 1] },
+    trans: { output: [-200, 0], range: [0.75, 1] },
+  },
+  {
+    component: <StatisticsBlock title={"Product Reviews"} value="5M" />,
+    op: { output: [0.5, 1], range: [0.75, 1] },
+    trans: { output: [-300, 0], range: [0.75, 1] },
+  },
+];
 
 export default BrandStatistics;

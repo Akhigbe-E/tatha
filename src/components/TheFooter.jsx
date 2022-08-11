@@ -4,77 +4,6 @@ import { useTransition, animated } from "react-spring";
 import { useInView } from "react-intersection-observer";
 import purpleFlower from "../images/purpleFlower.svg";
 
-const FOOTER_LINKS = [
-  {
-    title: "Company",
-    links: [{ text: "About" }, { text: "Jobs" }, { text: "Branding" }, { text: "Newsroom" }],
-  },
-  {
-    title: "Resources",
-    links: [{ text: "College" }, { text: "Support" }, { text: "Safety" }, { text: "StreamKit" }],
-  },
-  {
-    title: "Terms & Condition",
-    links: [
-      { text: "Policy" },
-      { text: "Faq" },
-      { text: "Return & Delivery" },
-      { text: "Tracking" },
-    ],
-  },
-  {
-    title: "Subscribe",
-    links: [{ text: "Get 10% off your first order" }],
-    extraLinkComponent: () => (
-      <div className="p-1 pl-5 bg-[#262653] w-full rounded-full flex items-center justify-between">
-        <p className="text-white/20 text-lg py-3">Enter your Email</p>
-        <div className="bg-d-orange w-12 h-12 rounded-full border-[1.5px] border-white center-flex">
-          <i className="ri-send-plane-2-line text-xl -rotate-45 mb-1 ml-1"></i>
-        </div>
-      </div>
-    ),
-  },
-];
-const FOOTER_LINKS_TRANS = [];
-const generateFooterLinkTrans = (fLinks) => {
-  fLinks.map(({ title, links, extraLinkComponent }, i) => {
-    FOOTER_LINKS_TRANS.push({
-      component: extraLinkComponent ? (
-        <div className={"w-64"}>
-          <FooterLinksRow title={title} links={links} extraLinkComponent={extraLinkComponent()} />
-        </div>
-      ) : (
-        <FooterLinksRow title={title} links={links} />
-      ),
-      op: { output: [1, 1], range: [0.75, 1] },
-      trans: { output: [70 + i * 60, 0], range: [0.75, 1] },
-    });
-  });
-};
-
-const FOOTER_IMAGE_TRANS = [
-  {
-    component: <div className="w-full h-64 bg-d-gray"></div>,
-    op: { output: [1, 1], range: [0.75, 1] },
-    trans: { output: [70, 0], range: [0.75, 1] },
-  },
-  {
-    component: <div className="w-full h-64 bg-d-gray"></div>,
-    op: { output: [1, 1], range: [0.75, 1] },
-    trans: { output: [150, 0], range: [0.75, 1] },
-  },
-  {
-    component: <div className="w-full h-64 bg-d-gray"></div>,
-    op: { output: [1, 1], range: [0.75, 1] },
-    trans: { output: [230, 0], range: [0.75, 1] },
-  },
-  {
-    component: <div className="w-full h-64 bg-d-gray"></div>,
-    op: { output: [1, 1], range: [0.75, 1] },
-    trans: { output: [310, 0], range: [0.75, 1] },
-  },
-];
-
 const TheFooter = () => {
   useEffect(() => {
     generateFooterLinkTrans(FOOTER_LINKS);
@@ -171,5 +100,83 @@ const TheFooter = () => {
     </footer>
   );
 };
+
+// ---------------------------------------------------------------------------------------
+// -------------------  TRANSITION FOR CHILD COMPONENTS ----------------------------------
+// ---------------------------------------------------------------------------------------
+
+// Data for footer links
+const FOOTER_LINKS = [
+  {
+    title: "Company",
+    links: [{ text: "About" }, { text: "Jobs" }, { text: "Branding" }, { text: "Newsroom" }],
+  },
+  {
+    title: "Resources",
+    links: [{ text: "College" }, { text: "Support" }, { text: "Safety" }, { text: "StreamKit" }],
+  },
+  {
+    title: "Terms & Condition",
+    links: [
+      { text: "Policy" },
+      { text: "Faq" },
+      { text: "Return & Delivery" },
+      { text: "Tracking" },
+    ],
+  },
+  {
+    title: "Subscribe",
+    links: [{ text: "Get 10% off your first order" }],
+    extraLinkComponent: () => (
+      <div className="p-1 pl-5 bg-[#262653] w-full rounded-full flex items-center justify-between">
+        <p className="text-white/20 text-lg py-3">Enter your Email</p>
+        <div className="bg-d-orange w-12 h-12 rounded-full border-[1.5px] border-white center-flex">
+          <i className="ri-send-plane-2-line text-xl -rotate-45 mb-1 ml-1"></i>
+        </div>
+      </div>
+    ),
+  },
+];
+
+// Transitions
+const FOOTER_LINKS_TRANS = [];
+const generateFooterLinkTrans = (fLinks) => {
+  fLinks.map(({ title, links, extraLinkComponent }, i) => {
+    FOOTER_LINKS_TRANS.push({
+      component: extraLinkComponent ? (
+        <div className={"w-64"}>
+          <FooterLinksRow title={title} links={links} extraLinkComponent={extraLinkComponent()} />
+        </div>
+      ) : (
+        <FooterLinksRow title={title} links={links} />
+      ),
+      op: { output: [1, 1], range: [0.75, 1] },
+      trans: { output: [70 + i * 60, 0], range: [0.75, 1] },
+    });
+  });
+};
+
+const FOOTER_IMAGE_TRANS = [
+  {
+    component: <div className="w-full h-64 bg-d-gray"></div>,
+    op: { output: [1, 1], range: [0.75, 1] },
+    trans: { output: [70, 0], range: [0.75, 1] },
+  },
+  {
+    component: <div className="w-full h-64 bg-d-gray"></div>,
+    op: { output: [1, 1], range: [0.75, 1] },
+    trans: { output: [150, 0], range: [0.75, 1] },
+  },
+  {
+    component: <div className="w-full h-64 bg-d-gray"></div>,
+    op: { output: [1, 1], range: [0.75, 1] },
+    trans: { output: [230, 0], range: [0.75, 1] },
+  },
+  {
+    component: <div className="w-full h-64 bg-d-gray"></div>,
+    op: { output: [1, 1], range: [0.75, 1] },
+    trans: { output: [310, 0], range: [0.75, 1] },
+  },
+];
 
 export default TheFooter;
